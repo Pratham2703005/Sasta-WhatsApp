@@ -29,26 +29,28 @@ const MessageForm = (props) => {
     };
 
     return (
-        <form className='message-form' onSubmit={handleSubmit}>
+        <form className='message-form' onSubmit={handleSubmit} style={{display:"flex"}}>
             <input
                 className='message-input'
                 placeholder='Send Message'
                 value={value}
                 onChange={handleChange}
+                style={{flex:"1"}}
             />
             <label htmlFor='upload-button'>
                 <span className='image-button'>
-                    <PictureOutlined className='picture-icon' />
+                    <PictureOutlined className='picture-icon' style={{fontSize:"20px", padding:"10px"}}/>
                 </span>
-            </label>
+            
             <input
                 type="file"
                 multiple={false}
                 id="upload-button"
                 style={{ display: 'none' }}
-                onChange={handleUpload} // No need to bind 'this'
+                onChange={handleUpload}
             />
-            <button type="submit" className='send-button'>
+            </label>
+            <button type="submit" className='send-button'  style={{fontSize:"20px",transform: 'rotateZ(90deg)' , marginLeft:"-15px"}}>
                 <SendOutlined className='send-icon' />
             </button>
         </form>

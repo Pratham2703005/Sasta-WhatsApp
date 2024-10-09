@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import bgImg from '../assets/background.jpg'
 const LoginForm = () => {
     const [username,setusername]=useState('');
     const [password,setpassword]=useState('');
@@ -14,25 +15,25 @@ const LoginForm = () => {
             localStorage.setItem('password',password);
             window.location.reload();
         }catch(e){
-            seterror('GLAT DETAILS DAALI HAI');
+            seterror('Wrong Details!!');
+            
         }
     }
     return (
-    <div className='wrapper'>
-      <div className='form'>
-        <h1 className='title'>
-            Sasta WhatsApp
-        </h1>
+      <div className='wrapper' style={{ backgroundImage: `url(${bgImg})` }}>
+      <div className='form' style={{background:"#fff", padding:"20px", borderRadius:"20px"}}>
+        <h1 style={{fontSize:"73px", textAlign: "center"}}><i className="fa-brands fa-whatsapp" ></i></h1>
+        <h1 className='title' style={{color:"#000"}}>Sasta WhatsApp</h1>
         <form onSubmit={handleSubmit}>
         
-        <input type="text" value={username} onChange={(e)=>setusername(e.target.value)} className='input' placeholder='Username' required/>
-        <input type="password" value={password} onChange={(e)=>setpassword(e.target.value)} className='input' placeholder='Password' required/>
-        <div align ="center">
-            <button type='submit' className='button'>
-                <span> Start App</span>
+        <input type="text" value={username} onChange={(e)=>setusername(e.target.value)} className='input' placeholder='Username' required style={{border: "1px solid black", borderRadius: "20px"}}/>
+        <input type="password" value={password} onChange={(e)=>setpassword(e.target.value)} className='input' placeholder='Password' required style={{border: "1px solid black", borderRadius: "20px"}}/>
+        <div align ="center" >
+            <button type='submit' className='button' >
+                <span style={{textTransform:"none"}}>Enter</span>
             </button>
         </div>
-        <h2 className='error'>{error}</h2>
+        <h2 className='error' style={{color:"#f00" , padding:"20px"}}>{error}</h2>
         </form>
       </div>
     </div>
